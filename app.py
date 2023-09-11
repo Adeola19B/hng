@@ -9,7 +9,7 @@ def my_endpoint():
         "current_day": "Monday" ,
         "utc-time":datetime.datetime.today().isoformat(),
         "track": "backend",
-        "github_file_url": "https://github.com/Adeola19B/hng/app.py",
+        "github_file_url": "https://github.com/Adeola19B/hng/blob/main/app.py",
         "github_repo_url": "https://github.com/Adeola19B/hng",
         "status_code": 200
     }
