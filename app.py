@@ -7,7 +7,7 @@ def my_endpoint():
     data = {
         "slack_name": "Ehinmore Adeola Adebameno",
         "current_day": "Monday" ,
-        "utc-time":datetime.datetime.today().isoformat(),
+        "utc-time":datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f") + "Z",
         "track": "backend",
         "github_file_url": "https://github.com/Adeola19B/hng/blob/main/app.py",
         "github_repo_url": "https://github.com/Adeola19B/hng",
