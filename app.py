@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
-from datetime import datetime
+from flask import Flask, jsonify, request
+from datetime import datetime, timedelta
 
 
 app = Flask(__name__)
@@ -15,10 +15,11 @@ def myendpoint():
             since = datetime.fromisoformat(request.args['since'])
             until = datetime.fromisoformat(request.args['until'])
         except ValueError:
-            return jsonify({'error': 'Invalid date format'}), 400
+            return jsonify({'error': 'Invalid Format'}), 400
         if (since < valid_time_range[0]) or (until > valid_time_range[1]):
-            return jsonify({'error': 'Date range is out of valid time range'}), 400
+            return jsonify({'error': 'Date of range range'}), 400
 
+    
     data = {
         "slack_name": "Adeola19B",
         "current_day": current,
