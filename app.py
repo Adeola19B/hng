@@ -6,6 +6,12 @@ app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def myendpoint():
+
+    name = request.args.get('slack_name', 'Adeola19B')
+    track = request.args.get('track', 'backend')
+    file_url = "https://github.com/Adeola19B/hng/blob/main/app.py"
+    repo_url = "https://github.com/Adeola19B/hng"
+    
     now = datetime.utcnow()
     current = now.strftime('%A')
     utc = now.strftime('%Y-%m-%dT%H:%M:%SZ')
@@ -21,19 +27,16 @@ def myendpoint():
 
     
     data = {
-        "slack_name": "Adeola19B",
+        "slack_name": name,
         "current_day": current,
-        "utc-time":utc,
-        "track": "backend",
-        "github_file_url": "https://github.com/Adeola19B/hng/blob/main/app.py",
-        "github_repo_url": "https://github.com/Adeola19B/hng",
+        "utc_time": utc,
+        "track": track,
+        "github_file_url": file_url,
+        "github_repo_url": repo_url,
         "status_code": 200
     }
-    response = jsonify(data)
-
-    response.headers['Content-Type'] = 'application/json'
-
-    return response
+    
+    return jsonify(data)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
