@@ -1,13 +1,19 @@
 from flask import Flask, jsonify
-import datetime
+from datetime import datetime
+
+
 app = Flask(__name__)
 
-@app.route('/details', methods=['GET'])
-def my_endpoint():
+@app.route('/api', methods=['GET'])
+def myendpoint():
+    now = datetime.utcnow()
+    current = now.strftime('%A')
+    utc = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    
     data = {
-        "slack_name": "Ehinmore Adeola Adebameno",
-        "current_day": "Monday" ,
-        "utc-time":datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f") + "Z",
+        "slack_name": "Adeola19B",
+        "current_day": current,
+        "utc-time":utc,
         "track": "backend",
         "github_file_url": "https://github.com/Adeola19B/hng/blob/main/app.py",
         "github_repo_url": "https://github.com/Adeola19B/hng",
